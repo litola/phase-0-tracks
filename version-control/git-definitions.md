@@ -24,3 +24,5 @@ A merge conflict can occur when more than one developer changes the same line in
 the same file, one modifies a file while the other one deletes the file. Its
 changing the same part in two or more different ways, that git doesn't know
 which one is the right thing and which part to ignore.
+
+Added to tag someone!
