@@ -1,5 +1,5 @@
 #Input Elements
-*Text -  
+*Text 
 *Email
 *Password
 *Select
