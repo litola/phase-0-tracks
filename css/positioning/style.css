@@ -1,3 +1,18 @@
 body{
 	background-color: lightgray;
 }
+
+.octopus{
+
+	display:block;
+	margin: auto;
+	width: 200px;
+	margin-top: 30px;
+}
+
+.hat{
+	width: 200px;
+	position:absolute;
+	margin-left: 42%;
+	margin-top:5px;
+}
