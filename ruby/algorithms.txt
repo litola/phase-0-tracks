@@ -1,0 +1,44 @@
+Use elevator 
+
+we are assuming the range of floors is from 0-10
+
+-for the very first time go all the way down, so we can count from zero.
+-go to the called floor and
+-wait for the door to open
+-if 2 min pass and the closing sensor clear 
+	-close the door
+-otherwise 
+	-wait for the time and the sensor is clear
+-ask which floor they need to go
+-if answer received
+	-if answer < actual floor
+		-start subtracting floor = floor - 1 for each floor it goes down
+	-else	
+		-start adding floor = floor + 1 for each floor it goes up
+-floor = answer received
+	-open the door in the desired floor
+-else 
+	-stay in the same floor
+	-close door when sensor clear
+-repeat
+
+
+
+
+Use a car
+-need to go somewhere?
+-if yes 
+	-go to car
+	-open car
+	-go into the car
+	-turn it on 
+	-che if it needs gas
+		-yes
+			-go to gas
+		-no
+			-drive to desired location 
+	-park the car
+	-shut off car
+	-get down the car
+else
+	-let the car parked.
