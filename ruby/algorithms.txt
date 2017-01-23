@@ -21,3 +21,24 @@ we are assuming the range of floors is from 0-10
 	-stay in the same floor
 	-close door when sensor clear
 -repeat
+
+
+
+
+Use a car
+-need to go somewhere?
+-if yes 
+	-go to car
+	-open car
+	-go into the car
+	-turn it on 
+	-che if it needs gas
+		-yes
+			-go to gas
+		-no
+			-drive to desired location 
+	-park the car
+	-shut off car
+	-get down the car
+else
+	-let the car parked.
