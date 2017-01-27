@@ -47,7 +47,28 @@ def decrypt (encrypted_pass)
 end	
 
 
+
 #DRIVING CODE 
+
+#Ask for option 
+#Process the response
+#call the apropriate method for encrypt or decrypt
+#print the processed info 
+
+puts "Would you like to decrypt or encrypt a password?"
+option = gets.chomp
+if (option == "encrypt")
+	puts "Enter your password for encryption"
+	password = gets.chomp
+	puts "Here is your encrypted password:"
+	puts encrypt(password)
+else (option == "decrypt")
+	puts "Enter your password for decryption"
+	password = gets.chomp
+	puts "Here is your decrypted password:"
+	puts decrypt(password)
+end
+
 
 
 
