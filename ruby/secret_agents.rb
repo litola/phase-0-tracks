@@ -54,19 +54,26 @@ end
 #Process the response
 #call the apropriate method for encrypt or decrypt
 #print the processed info 
-
-puts "Would you like to decrypt or encrypt a password?"
-option = gets.chomp
-if (option == "encrypt")
-	puts "Enter your password for encryption"
-	password = gets.chomp
-	puts "Here is your encrypted password:"
-	puts encrypt(password)
-else (option == "decrypt")
-	puts "Enter your password for decryption"
-	password = gets.chomp
-	puts "Here is your decrypted password:"
-	puts decrypt(password)
+program = true 
+while program == true do 
+	puts "Would you like to decrypt or encrypt a password? (to exit, type done)"
+	option = gets.chomp
+	if (option == "encrypt")
+		puts "Enter your password for encryption"
+		password = gets.chomp
+		puts "Here is your encrypted password:"
+		puts encrypt(password)
+	elsif (option == "decrypt")
+		puts "Enter your password for decryption"
+		password = gets.chomp
+		puts "Here is your decrypted password:"
+		puts decrypt(password)
+	elsif (option == "done")
+		program = false
+		puts "Thanks for coming!"
+	else 
+		puts "Uppss! Didn't understood try again"
+	end
 end
 
 
