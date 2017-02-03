@@ -41,3 +41,47 @@ end
 p fib(1)
 p fib(6)
 p fib(100)[-1] == 218922995834555169026
+
+# [1,3,2,5,4]
+# [1,2,3,5,4]
+# [1,2,3,4,5]
+
+# Psuedo Code for Bubble Sorting
+# 
+# for each item in the array
+# 	if the item adjacent to it is smaller
+# 		swap positions
+# 	move to the next item
+# while aleast one item was swapped
+# 	repeat the for loop above
+# return the newly sorted array
+
+def bubble_sort(array)
+	current_index = 0
+	swap = false
+	loop do 
+		array.each do |item|
+			break if current_index == array.length - 1
+
+			next_item = array[current_index + 1]
+
+			if item > next_item
+				array[current_index] = next_item
+				array[current_index + 1] = item
+				swap = true
+			end
+
+			current_index+=1
+		end
+		
+		if swap 
+			swap = false
+			current_index = 0
+		else 
+			break
+		end
+	end
+	array
+end
+
+p bubble_sort([100,1,4,3,5,2])
