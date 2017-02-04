@@ -1,34 +1,40 @@
-#Client Info
-#declare an empty client hash
-#Ask client info and store it in hash with appropriate data type 
-#print back the hash 
-#ask for any update if none skip and exit
-#if any change make it and reprint the latest version and exit program
+#PSEUDO CODE
+#1.PROMPT THE INFO (NAME, AGE, CHILDREN, DECOR THEME, EMAIL, PHONE, )
+#2. CONVERT TO APPROPIATE DATA TYPE AND SAVE 
+#3. PRINT HASH BACK 
+#4. ASK IF ANY CHANGE NEEDED, CALLING BY SYMBOL
+#5. UPDATE IF ANY CHANGE NEEDED
+#6.PRINT LATEST VERSION OF HASH 
 
-#BUSINESS LOGIC
-questionaire = ["name", "age", "children", "decor_theme"]
 client_info = {}
-index_q = 0 
 
-def get_info
-	gets.chomp
+puts "Whats your name?"
+client_info[:name] = gets.chomp.to_s
+
+puts "Whats your age?"
+client_info[:age] = gets.chomp.to_i
+
+puts "how many childs do you have?"
+client_info[:children] = gets.chomp.to_i
+
+puts "Whats your decor theme?"
+client_info[:decor_theme] = gets.chomp.to_s
+
+puts client_info
+
+puts "Do you want to update something? (none, to skip)"
+puts "(name, age, children, decor_theme)"
+update = gets.chomp.downcase
+case update
+	when "none"
+		puts "Thank you!"
+	else
+	client_info.each do |k,v| 
+		if update == k.to_s
+			puts "whats the correct #{k} value?"
+			client_info[k.to_sym] = gets.chomp
+		end
+	end
 end
+puts "Latest update: #{client_info}"
 
-def convert_string_to_data_type(string)
-	puts "Works #{string}"
-end
-
-def convert_s_to_symbol(string)
-end
-
-
-#USER INTERFACE
-puts "INTERIOR DESIGNER JOB APPLICATION"
-puts "Please fill the information."
-
-while index_q < questionaire.length 
-	puts "#{questionaire[index_q]}: "
-	input = get_info
-	convert_string_to_data_type(input) 
-	index_q +=1
-end
