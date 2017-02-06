@@ -1,8 +1,9 @@
 # class Puppy
-# breed = 
-# characteristics = {
-# 	color: ,
-# 	size: ,
-# 	name:  ,
-# 	friendly: ,	
-# }
+	# breed = ""
+	# characteristics = {
+	# 	color: "",
+	# 	size: "",
+	# 	name: "",
+	# 	friendly: "" ,	
+	# }
+#end
