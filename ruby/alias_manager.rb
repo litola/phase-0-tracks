@@ -57,7 +57,7 @@ def join_name_decorate (fullname)
 	fullname.map!{|l| l.join('')}
 	fullname.map!{|w| w.capitalize}
 end
-
+#User Interface
 puts "Whats your name and lastname?"
 fullname = gets.chomp.downcase.split(' ')
 swap_names(fullname)
