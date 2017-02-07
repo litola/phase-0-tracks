@@ -8,6 +8,15 @@
   # print the list to the console [can you use one of your other methods here?]
 # output: [hash{item: quantity}]
 
+def create_list(items)
+	grocery_list = {}
+	items_array = items.split(" ")
+	items_array.each { |item| grocery_list.store(item, 1) }
+	grocery_list
+end
+
+#p create_list("carrots apples cereal pizza")
+
 # Method to add an item to a list
 # input: list, item name, and optional quantity
 # steps:
@@ -17,6 +26,10 @@
 # else
 # 	otherwise set default value = 1  
 # output: [updated item hash ]
+
+def add_item(grocery_list, item, quantity)
+	grocery_list.
+
 
 # Method to remove an item from the list
 # input: list, item name
@@ -39,3 +52,5 @@
 # iterate through keys and values 
 # format the string 
 # output: strings 
+
+
