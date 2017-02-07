@@ -15,7 +15,7 @@ def create_list(items)
 	grocery_list
 end
 
-#p create_list("carrots apples cereal pizza")
+p grocery_list = create_list("carrots apples cereal pizza")
 
 # Method to add an item to a list
 # input: list, item name, and optional quantity
@@ -28,8 +28,17 @@ end
 # output: [updated item hash ]
 
 def add_item(grocery_list, item, quantity)
-	grocery_list.
+	if grocery_list.member?(item)
+		grocery_list[item] += quantity
+	else
+		grocery_list.store(item, quantity)
+	end
+	grocery_list
+end
 
+add_item(grocery_list,"carrots",5)
+add_item(grocery_list,"milk", 2)
+p grocery_list
 
 # Method to remove an item from the list
 # input: list, item name
@@ -38,6 +47,16 @@ def add_item(grocery_list, item, quantity)
 # if it does delete the item 
 # if not return item not found
 # output: [updated hash ]
+
+def remove_item(grocery_list, item)
+	if grocery_list.member?(item)
+		grocery_list.delete[item]
+		puts "#{item}, successfully removed"
+	else
+		puts "#{item} not found"
+	end
+	grocery_list
+end
 
 # Method to update the quantity of an item
 # input: list, item name, quantity 
