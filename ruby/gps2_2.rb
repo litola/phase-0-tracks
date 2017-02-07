@@ -84,5 +84,11 @@ p grocery_list
 # iterate through keys and values 
 # format the string 
 # output: strings 
+def print_list(grocery_list)
+	grocery_list.each {|item,quantity| puts "we have #{quantity} #{item}" }
+	puts "_____________________"
+	puts "Total items - #{grocery_list.length}"
+end
 
+print_list(grocery_list)
 
