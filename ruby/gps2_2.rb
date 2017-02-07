@@ -50,7 +50,7 @@ p grocery_list
 
 def remove_item(grocery_list, item)
 	if grocery_list.member?(item)
-		grocery_list.delete[item]
+		grocery_list.delete(item)
 		puts "#{item}, successfully removed"
 	else
 		puts "#{item} not found"
@@ -58,13 +58,26 @@ def remove_item(grocery_list, item)
 	grocery_list
 end
 
+remove_item(grocery_list,"milk")
+remove_item(grocery_list, "coliflower")
+p grocery_list
 # Method to update the quantity of an item
 # input: list, item name, quantity 
 # steps:
 # iterate trhough the keys to check if the item exists
 # if it does exist update to  quantity 
-# output:[updated hash ]
+# output:[updated hash]
+def update_item(grocery_list, item, quantity)
+	if grocery_list.member?(item)
+		grocery_list[item] = quantity
+	else
+		puts "#{item} not found"
+	end
+	grocery_list
+end
 
+update_item(grocery_list, "apples",6)
+p grocery_list
 # Method to print a list and make it look pretty
 # input: hash 
 # steps:
