@@ -67,7 +67,7 @@ def bubble_sort(array)
 
 			next_item = array[current_index + 1]
 
-			if item > next_item
+			if item > next_item 
 				array[current_index] = next_item
 				array[current_index + 1] = item
 				swap = true
