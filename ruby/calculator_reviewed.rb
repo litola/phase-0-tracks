@@ -1,54 +1,49 @@
 #integers operations available +, -, *,/
-#input:"2 + 3"
-#output:["2","+","3"]
+#splits the string by spaces
+  #input:"2 + 3"
+  #output:["2","+","3"]
 def divide_by_space(input)
-  input = string.split(" ")
+  input_spliced = input.split(" ")
 end
-
-p divide_by_space("2 + 3")
-
-
-
-# def calculate(num1,operation,num2)
-#   case operation
-#   when "+"
-#     answer = num1+num2
-#   when "-"
-#     answer = num1 - num2
-#   when "*"
-#     answer = num1 * num2
-#   when "/"
-#     answer = num1/num2  
-#   end
-# end 
-
-# # #DRIVER CODE
-# # p calculate(5, '+', 7)# =>  12
-# # p calculate(10,'-',5)# => 5
-# # p calculate(2,'*',5) # =>  10
-# # p calculate(20,'/',5)# => 4 
-
-# #USER INTERFACE
-puts "Enter your "
- 
-
-
-
-# more_calculations = true
-# ops =[]
-# calculations = 0 
-# while more_calculations do 
-#   puts "Type your operation (+,-,*,/). Remember its limited for just one operation at a time."
-#   operation = gets.chomp
-#   ops << operation 
-#   if operation == "done"
-#     more_calculations = false
-#     puts "#{calculations} calculations performed:"
-#     puts ops
-#   else
-#     calculations += 1
-#     puts "your answer:"
-#     p answer = calculate(operation)
-#     ops << answer
-#   end
-# end
+#selects and do the operation
+  #input: ["2","+","3"]
+  #output: an integer
+def do_operation(operation)
+    num1 = operation[0].to_i
+    num2 = operation[2].to_i
+  case operation[1]
+  when "+"
+   num1 + num2
+  when "-"
+    num1 - num2
+  when "*"
+    num1 * num2
+  when "/"
+   num1 / num2 
+  end
+end 
+#DRIVER CODE
+  #p divide_by_space("2 + 3")
+#USER INTERFACE
+#user enters operation with number space operation space number format
+#until user types "done" to exit keep doing calculations
+#if done print operations
+#else keep doind operations
+more_calculations = true
+operations = {}
+begin 
+   puts "Enter your operation, type 'done' when finished"
+    input = gets.chomp
+  if input == "done"
+    more_calculations = false
+  else
+    input_spliced = divide_by_space(input)
+    answer = do_operation(input_spliced)
+    operations.store(input, answer)
+    puts answer
+  end 
+end while more_calculations 
+puts "#{operations.length} calculation(s) performed:"
+operations.each do |operation , answer|
+  puts "#{operation} = #{answer}"
+end
