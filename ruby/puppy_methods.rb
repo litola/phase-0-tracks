@@ -53,10 +53,11 @@ class Parrot
 end
 
 #Driver code
+#Create a hash of parrots name: parrot_object
+#Create 50 parrots, store each one in a hash
+#call the instance methods in each parrot created
 parrots = {}
 50.times { |x| parrots.store("parrot_#{x}",Parrot.new) }
-
-puts parrots
 parrots.each do |name,parrot|
 	puts "Name: #{name}"
 	parrot.talk
