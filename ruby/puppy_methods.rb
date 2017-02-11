@@ -1,4 +1,8 @@
 class Puppy
+	def initialize 
+		puts "Initializing new puppy instance ..."
+	end
+
   def fetch(toy)
     puts "I brought back the #{toy}!"
     toy
@@ -23,6 +27,7 @@ end
 
 #DRIVER CODE 
 puppy = Puppy.new
+puts "---------"
 puppy.speak(5)
 puts "---------"
 puppy.speak(3)
@@ -32,3 +37,30 @@ puts "---------"
 puts puppy.dog_years(7)
 puts "---------"
 puppy.play_death
+
+class Parrot
+	def initialize 
+		puts "Parrot talking: Parrot initilaizing .. grrrr grrr"
+	end
+
+	def talk 
+		puts "GGrrr, Grrr Parrot can talk!"
+	end
+
+	def fly(destination)
+		puts "Parrot flying to #{destination}!"
+	end
+end
+
+#Driver code
+#Create a hash of parrots name: parrot_object
+#Create 50 parrots, store each one in a hash
+#call the instance methods in each parrot created
+parrots = {}
+50.times { |x| parrots.store("parrot_#{x}",Parrot.new) }
+parrots.each do |name,parrot|
+	puts "Name: #{name}"
+	parrot.talk
+	parrot.fly("Europe")
+end
+
