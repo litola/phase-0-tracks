@@ -81,11 +81,10 @@ class VirusPredictor
     # else
     #   speed += 2.5
     # end
-
-    if (@population_density >= 50) && (@population_density <= 200) 
-      speed += 2.5 - ((@population_density / 100).floor + 0.5)
-    elsif @population_density > 200
+    if @population_density > 200
       speed += 0.5
+    elsif (@population_density >= 50) && (@population_density <= 200) 
+      speed += 2.5 - ((@population_density / 100).floor + 0.5)
     else
       speed += 2.5
     end
