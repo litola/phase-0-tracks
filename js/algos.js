@@ -77,5 +77,19 @@ randomStrings = emptyArray.map(randomWordGenerator);
 console.log("random strings: " + randomStrings);
 longest = longestString(randomStrings);
 console.log("longest or first: " + longest);
+// CREATE 10 times:
+// generate array
+// print array
+// feeds array into longestString
+// print result
+for (var i = 1; i<=10;i++){
+	console.log(i +". --------------------------------")
+	emptyArray = createArray(5);
+	randomStrings = emptyArray.map(randomWordGenerator);
+	console.log("random strings: " + randomStrings);
+	longest = longestString(randomStrings);
+	console.log("longest or first: " + longest);
+	console.log("--------------------------------")
+}
 
 	
