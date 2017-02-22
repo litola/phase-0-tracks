@@ -1,0 +1,11 @@
+Release 2:
+
+2.    CREATE TABLE reviews (id INTEGER PRIMARY KEY,  stars INTEGER, comment VARCHAR(255), business_id INTEGER, user_id INTEGER, FOREIGN KEY(business_id)REFERENCES businesses(id), FOREIGN KEY(user_id) REFERENCES users(id));
+
+3. sqlite> sqlite> SELECT users.firstname, reviews.stars, reviews.comment, businesses.name FROM reviews JOIN users, businesses ON reviews.user_id = users.id WHERE businesses.id = reviews.business_id;
+Bradford|5|divorce|Grundy Hollow Wedding Chapel
+Mandy|5|goodservice|Amir's Towing
+Angela|4|goodparty|The Beagle Nightclub
+
+4. sqlite> SELECT * FROM reviews JOIN users, businesses ON reviews.user_id=users.id WHERE reviews.business_id=businesses.id AND businesses.id=1;
+1|5|divorce|1|1|1|Bradford|Pitt|1|Grundy Hollow Wedding Chapel
