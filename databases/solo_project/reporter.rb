@@ -1,6 +1,7 @@
+#Module to print out reports for User Interface
 module Reporter
-#retrieve all companies
 	class Company
+		#retrieve all companies
 		def self.all_companies(db)
 			companies = db.execute("SELECT * FROM companies")
 			puts "--    Companies Directory    --"
@@ -8,6 +9,6 @@ module Reporter
 				puts "#{c['id']}. Name: #{c['name']} Phone: #{c['phone']}"
 			end
 		end
-		
+
 	end
 end
