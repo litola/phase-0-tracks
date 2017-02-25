@@ -1,6 +1,7 @@
 #require sqlite 3 gem
 require 'sqlite3'
 require_relative 'companies'
+require_relative 'workers'
 require_relative 'reporter'
 #Initialize all tables for the DB
 #create a administration system db
@@ -15,20 +16,31 @@ create_table_companies = <<-SQL
 	  );
 	SQL
 db.execute(create_table_companies)
-#create table workers
+#create workers table 
 create_table_workers = <<-SQL
 	  CREATE TABLE IF NOT EXISTS workers (
 	    id INTEGER PRIMARY KEY,
-	    name varchar(255),
-	    phone varchar(255),
-	    daily_salary real
+	    name VARCHAR(255),
+	    phone VARCHAR(255),
+	    daily_salary REAL,
+	    company_id INT,
+	    FOREIGN KEY(company_id) REFERENCES companies(id) 
 	  );
 	SQL
 	db.execute(create_table_workers)
 
 #DRIVER CODE
+
+#COMPANIES
 # company1 = Company.new("Company A","512 548 87 52")
 # company1.new_company(db)
 # company2 = Company.new("Company B","682 558 12 23")
 # company2.new_company(db)
-# Reporter::Company.all_companies(db)
+Reporter::Company.all_companies(db)
+
+#WORKERS
+# worker1 = Worker.new("JOHN M.", "215 54 85", 200,1)
+# worker1.new_worker(db)
+# worker2 = Worker.new("MARY M.", "457 45 84", 220,1)
+# worker2.new_worker(db)
+Reporter::Worker.all_workers(db)
