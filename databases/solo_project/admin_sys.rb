@@ -28,6 +28,17 @@ create_table_workers = <<-SQL
 	  );
 	SQL
 	db.execute(create_table_workers)
+#create assistance table
+create_table_assistance = <<-SQL
+	  CREATE TABLE IF NOT EXISTS assistances (
+	    id INTEGER PRIMARY KEY,
+	    assistance BOOLEAN,
+	    worker_id INT,
+	    FOREIGN KEY(worker_id) REFERENCES workers(id) 
+	  );
+	SQL
+	db.execute(create_table_assistance)
+
 
 #DRIVER CODE
 
