@@ -1,3 +1,6 @@
+#Its a administration database that allows multiple companies with multple workers
+#you can take the assistance for each worker and then multiply it for its daily salary 
+
 #require sqlite 3 gem
 require 'sqlite3'
 require 'date'
@@ -48,8 +51,9 @@ create_table_assistance = <<-SQL
 #COMPANIES
 # company1 = Company.new("Company A","512 548 87 52")
 # company1.new_company(db)
-# company2 = Company.new("Company B","682 558 12 23")
+# company2 = Company.new("Company c","682 558 12 23")
 # company2.new_company(db)
+#company2.delete_company(db,5)
 Reporter::Company.all_companies(db)
 
 #WORKERS
@@ -77,7 +81,7 @@ Reporter::Assistance.print_all_worker_assistance(db,2)
 # delete = Assistance.new("2017-02-23",1)
 # delete.delete_assistance(db)
 Reporter::Assistance.get_range_worker_assistances(db,1,"2017-02-01","2017-02-25")
-Reporter::Assistance.get_range_worker_assistances(db,1,"2017-02-24","2017-02-25")
+# Reporter::Assistance.get_range_worker_assistances(db,1,"2017-02-24","2017-02-25")
 Reporter::Assistance.get_range_worker_assistances(db,2,"2017-02-01","2017-02-25")
 # update = Assistance.new("2017-02-23",1)
 # update.update_assistance(db,0)

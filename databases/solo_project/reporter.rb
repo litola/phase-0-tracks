@@ -38,7 +38,7 @@ module Reporter
 	class Assistance
 		def self.print_all_worker_assistance(db,worker_id)
 			count = 0
-			puts "--    Worker Assistance    --"
+			puts "--    Worker Assistance Table   --"
 			assistances = db.execute("SELECT assistances.date_of_assistance, workers.name, assistances.assistance FROM workers JOIN assistances WHERE workers.id = worker_id AND worker_id = ? ORDER BY date_of_assistance ASC", [worker_id])
 			assistances.each do |a|
 				if a['assistance']==1
@@ -52,12 +52,12 @@ module Reporter
 			puts "total: #{count}"
 			puts
 		end
-	#retrieve assistance by worker and range dates
+	#retrieve assistance by worker and range dates returns number of presents
 		def self.get_range_worker_assistances(db,worker_id,start_date,end_date)
 			start_date = Date.parse(start_date)
 			end_date = Date.parse(end_date)
 			count = 0 
-			assistances = db.execute("SELECT assistances.date_of_assistance, workers.name, assistances.assistance FROM workers JOIN assistances WHERE workers.id = worker_id and worker_id = ?",[worker_id])
+			assistances = db.execute("SELECT assistances.date_of_assistance, workers.name, workers.daily_salary, assistances.assistance FROM workers JOIN assistances WHERE workers.id = worker_id and worker_id = ?",[worker_id])
 			assistances.each do |a|
 				date = Date.parse(a['date_of_assistance'])
 				if date >= start_date && date <= end_date && a['assistance'] == 1
@@ -66,8 +66,11 @@ module Reporter
 			end
 			puts "Worker: #{assistances[0]['name']}"
 			puts "Assistance from #{start_date} to #{end_date}:"
-			puts "Total: #{count}"
-			puts
+			puts "assistances: #{count}"
+			puts "Daily salary: #{assistances[0]['daily_salary']}"
+			total = count * assistances[0]['daily_salary']
+			puts "To pay $ #{total}"
+			puts "---------------------------"
 			return count
 		end
 
