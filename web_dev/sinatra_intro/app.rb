@@ -28,12 +28,23 @@ end
 get '/students' do
   students = db.execute("SELECT * FROM students")
   response = ""
-  students.each do |student|
-    response << "ID: #{student['id']}<br>"
-    response << "Name: #{student['name']}<br>"
-    response << "Age: #{student['age']}<br>"
-    response << "Campus: #{student['campus']}<br><br>"
-  end
+  if params[:name]
+    students.each do |student|
+      if student['name'].downcase.include? params[:name]
+        response << "ID: #{student['id']}<br>"
+        response << "Name: #{student['name']}<br>"
+        response << "Age: #{student['age']}<br>"
+        response << "Campus: #{student['campus']}<br><br>"
+      end
+    end
+  else
+    students.each do |student|
+      response << "ID: #{student['id']}<br>"
+      response << "Name: #{student['name']}<br>"
+      response << "Age: #{student['age']}<br>"
+      response << "Campus: #{student['campus']}<br><br>"
+    end
+  end 
   response
 end
 
@@ -43,4 +54,20 @@ end
 get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
+end
+
+get '/contact' do 
+  "Address: 345 North street, My town, zipcode 54821"
+end
+
+get '/great_job' do 
+  if params[:name] 
+    "Good job, #{params[:name]}"
+  else 
+    "Good job!"
+  end   
+end
+get '/:num1/:num2' do 
+    result = params[:num1].to_f + params[:num2].to_f
+    "Your answer is: #{result}"
 end
