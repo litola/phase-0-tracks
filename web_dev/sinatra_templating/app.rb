@@ -25,3 +25,18 @@ post '/students' do
 end
 
 # add static resources
+
+# search student by id. 
+get '/search_student' do
+	erb :search_student
+end
+
+get '/student' do 
+	@student = db.execute("SELECT * FROM students WHERE id = ?", [params['student_id']])
+	if @student[0] != nil
+		erb :student
+  else
+	  redirect '/search_student?error="not found"'
+	 
+	end
+end
